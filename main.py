@@ -1,8 +1,9 @@
 import sys
 
+from PyQt5.QtGui import QIcon
 from scipy.io.wavfile import read, write
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QFileDialog, QStyle
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -12,6 +13,10 @@ from scipy import signal
 class SpectrogramWidget(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super(SpectrogramWidget, self).__init__(parent)
+
+        # Set window title
+        self.setWindowTitle("PySpectrogram")
+
         # vars
         self.file_path = ""
         self.num_channels = 1
